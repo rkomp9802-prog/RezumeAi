@@ -1,0 +1,7 @@
+# Не отправлять в Vercel локальные секреты и служебные папки.
+# Ключ Gemini задаётся в настройках проекта Vercel (Environment Variables).
+.env
+.env*.local
+.claude
+node_modules
+.next
