@@ -24,7 +24,14 @@ let client: GoogleGenAI | null = null;
 
 function getClient(): GoogleGenAI {
   const apiKey = process.env.GEMINI_API_KEY?.trim();
-  if (!apiKey) throw new AiError("AI не настроен: добавьте GEMINI_API_KEY в .env.local и перезапустите сервер.", 503);
+  if (!apiKey) {
+    throw new AiError(
+      process.env.VERCEL
+        ? "AI не настроен: добавьте GEMINI_API_KEY в Vercel (Settings → Environment Variables) и сделайте Redeploy."
+        : "AI не настроен: добавьте GEMINI_API_KEY в .env.local и перезапустите сервер.",
+      503,
+    );
+  }
   client ??= new GoogleGenAI({ apiKey });
   return client;
 }
