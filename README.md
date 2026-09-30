@@ -96,3 +96,9 @@ public/fonts/          TTF-шрифты резюме (для предпросм�
 
 - Порядок записей — их позиция в массиве; порядок и видимость разделов — массив `sections`. Отдельных полей `order` нет, чтобы не было двух источников правды.
 - Версия данных — `schemaVersion` (сейчас 1). Миграции для localStorage и импортируемых JSON — в `src/lib/resume/migrations.ts`.
+
+## Деплой
+
+Сайт: https://resume-portfolio-builder-liart.vercel.app
+
+Репозиторий подключён к Vercel: каждый `git push` в ветку `main` автоматически собирает и выкладывает новую версию. Ключ `GEMINI_API_KEY` задан в настройках проекта Vercel (Settings → Environment Variables), в репозитории его нет.
